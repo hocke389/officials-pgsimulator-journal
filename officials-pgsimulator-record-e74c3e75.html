@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pg模拟器 — 知识库入口说明页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+            background-color: #faf7f0;
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+
+        .page {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #fefcf8;
+            padding: 2.5rem 2rem;
+            border-radius: 2px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03), 0 0 0 1px #ede9e0 inset;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3b3b3b;
+            border-left: 4px solid #b8a48b;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #4a3f35;
+            margin-top: 2.5rem;
+            margin-bottom: 0.8rem;
+            padding-bottom: 0.3rem;
+            border-bottom: 1px dashed #d9d0c2;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #5f5242;
+            margin-top: 1.8rem;
+            margin-bottom: 0.4rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+            text-align: justify;
+        }
+
+        .intro-badge {
+            background: #eee9df;
+            color: #3f382e;
+            display: inline-block;
+            padding: 0.2rem 1rem;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+        }
+
+        .highlight-link {
+            color: #8b6f50;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbb8a3;
+            transition: color 0.2s;
+        }
+
+        .highlight-link:hover {
+            color: #4d3825;
+            text-decoration-color: #8b6f50;
+        }
+
+        .grid-cards {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .card {
+            flex: 1 1 200px;
+            background: #f9f5ed;
+            padding: 1.2rem 1.2rem 1rem;
+            border-left: 3px solid #d6c8b6;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+        }
+
+        .card strong {
+            display: block;
+            font-weight: 600;
+            color: #4d3f2e;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #4a4239;
+        }
+
+        .callout-box {
+            background: #f3eee5;
+            padding: 1.2rem 1.5rem;
+            margin: 2rem 0;
+            border-radius: 0;
+            border-left: 4px solid #b8a48b;
+            font-style: normal;
+        }
+
+        .callout-box p {
+            margin-bottom: 0.4rem;
+        }
+
+        .callout-box .label {
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.3px;
+            color: #6f5f4b;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #4f4133;
+        }
+
+        .faq-item .a {
+            padding-left: 0.5rem;
+            border-left: 2px solid #ddd2c0;
+            margin-top: 0.2rem;
+            color: #4b443b;
+        }
+
+        .meta-note {
+            font-size: 0.9rem;
+            color: #7a7267;
+            background: #f1ede4;
+            padding: 0.8rem 1rem;
+            margin-top: 2.5rem;
+            border-radius: 2px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e2dacd;
+            margin: 2rem 0 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 1.8rem 1.2rem;
+            }
+            h1 {
+                font-size: 1.6rem;
+                padding-left: 0.8rem;
+            }
+            .grid-cards {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <span class="intro-badge">📖 知识库 · 查阅页</span>
+        <h1>pg模拟器 · 日常查询与对照</h1>
+
+        <p>无论你是初次接触还是已有经验，在查阅或对比时，<a href="https://officials-pgsimulator.com" class="highlight-link">pg模拟器</a> 是一个常被提及的基础参考。以下整理了常见询问方向、功能对照以及延伸阅读索引，便于快速定位信息。</p>
+
+        <h2>▎常见查询分类</h2>
+        <div class="grid-cards">
+            <div class="card">
+                <strong>基础定义</strong>
+                <p>模拟器的作用范围、运行逻辑、适用场景说明。</p>
+            </div>
+            <div class="card">
+                <strong>操作方式</strong>
+                <p>界面布局、参数设置、常用快捷键与默认状态。</p>
+            </div>
+            <div class="card">
+                <strong>兼容参考</strong>
+                <p>系统版本、硬件要求、已知适配情况。</p>
+            </div>
+            <div class="card">
+                <strong>常见疑问</strong>
+                <p>启动问题、显示异常、存档路径等高频条目。</p>
+            </div>
+        </div>
+
+        <h2>▎功能区说明</h2>
+        <p>页面主要分为以下几个信息模块，方便对照查阅：</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1.5rem; color: #3d3a35;">
+            <li><strong>概要区</strong> — 模拟器的版本、更新日期、核心特性简述。</li>
+            <li><strong>对照表</strong> — 不同设置下的参数差异、功能开关说明。</li>
+            <li><strong>提示区</strong> — 使用中容易忽略的细节、推荐配置项。</li>
+            <li><strong>参考链接</strong> — 延伸阅读、社区讨论、相关文档汇总。</li>
+        </ul>
+
+        <div class="callout-box">
+            <div class="label">📌 使用提示</div>
+            <p>查阅时建议先确认模拟器版本号，部分选项在不同版本中位置或名称略有不同。若遇到无法保存设置的情况，可以检查配置文件的写入权限。</p>
+            <p style="margin-top: 0.5rem;">—— 更多细节可参考 <a href="https://officials-pgsimulator.com" class="highlight-link">pg模拟器</a> 页面中的说明区与提示区。</p>
+        </div>
+
+        <h2>▎FAQ 摘要（常被问及）</h2>
+        <div class="faq-item">
+            <div class="q">Q：启动后界面显示不全怎么办？</div>
+            <div class="a">尝试调整窗口缩放比例或切换显示模式。部分环境需更新显卡驱动。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：存档文件默认存放在哪里？</div>
+            <div class="a">通常在用户文档目录下的对应文件夹中，具体路径可在模拟器设置中查看或自定义。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：是否支持手柄或外接设备？</div>
+            <div class="a">支持常见输入设备，需在控制选项中进行映射配置。</div>
+        </div>
+        <div class="faq-item">
+            <div class="q">Q：模拟器运行时占用资源较高，如何优化？</div>
+            <div class="a">可降低渲染分辨率、关闭后台特效或限制帧数。具体优化项可查阅性能调节区域。</div>
+        </div>
+
+        <hr>
+
+        <h2>▎相关信息区</h2>
+        <p>除核心功能外，以下延伸内容也值得留意：</p>
+        <ul style="margin-left: 1.8rem; margin-bottom: 1.5rem; color: #3d3a35;">
+            <li>社区整理的参数对照表（包含常见游戏/应用的兼容性记录）</li>
+            <li>模拟器日志分析基础：如何读取 log 文件定位问题</li>
+            <li>不同渲染后端的特点与选择建议（OpenGL / Vulkan 等）</li>
+            <li>备份与迁移配置文件的简单步骤</li>
+        </ul>
+
+        <div class="meta-note">
+            <span style="font-weight: 500;">本页为知识库入口</span> — 内容基于公开资料整理，仅供日常查阅对照。如发现信息需要更新，建议以 <a href="https://officials-pgsimulator.com" class="highlight-link">pg模拟器</a> 官方页面的说明为准。
+        </div>
+
+        <p style="text-align: right; font-size: 0.85rem; color: #958c7e; margin-top: 2rem; border-top: 1px solid #e6ddd0; padding-top: 1rem;">记录时间 · 持续修订</p>
+    </div>
+</body>
+</html>
