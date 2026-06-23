@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 日常查询与对照</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            background: linear-gradient(145deg, #fce9d6 0%, #f7d9b8 35%, #f3cb9f 70%, #ecd1b0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem 1.2rem 3rem;
+            line-height: 1.6;
+            color: #3a2b1c;
+        }
+
+        .page-wrap {
+            max-width: 780px;
+            width: 100%;
+        }
+
+        /* 卡片基座 */
+        .card {
+            background: rgba(255, 250, 241, 0.92);
+            backdrop-filter: blur(2px);
+            border-radius: 32px;
+            padding: 2rem 2.2rem;
+            box-shadow: 0 8px 24px rgba(140, 90, 50, 0.13), 0 2px 6px rgba(100, 65, 30, 0.06);
+            transition: box-shadow 0.2s ease;
+            margin-bottom: 1.8rem;
+            border: 1px solid rgba(255, 235, 210, 0.6);
+        }
+
+        .card:hover {
+            box-shadow: 0 12px 30px rgba(150, 95, 45, 0.18);
+        }
+
+        /* hero 区域 — 更偏向叙述感 */
+        .hero {
+            text-align: center;
+            padding-top: 2.2rem;
+            padding-bottom: 1.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.4rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            color: #4e3020;
+            margin-bottom: 0.4rem;
+            background: linear-gradient(135deg, #6b422a, #8b5a3a);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero .sub {
+            font-size: 1.05rem;
+            color: #6f4f33;
+            background: rgba(230, 198, 165, 0.3);
+            display: inline-block;
+            padding: 0.2rem 1.2rem;
+            border-radius: 60px;
+            backdrop-filter: blur(1px);
+            margin-top: 0.2rem;
+            font-weight: 400;
+            border: 1px solid #e5cdb5;
+        }
+
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1rem;
+            color: #4a3828;
+            max-width: 580px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 0 0.2rem;
+        }
+
+        /* 优势区 三列微调 */
+        .advantages-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.2rem 0 0.2rem;
+        }
+
+        .advantage-item {
+            flex: 1 1 180px;
+            background: #fffbf4;
+            border-radius: 24px;
+            padding: 1.2rem 1rem 1rem;
+            border: 1px solid #eedbc7;
+            transition: transform 0.15s;
+        }
+
+        .advantage-item p {
+            font-size: 0.95rem;
+        }
+
+        .advantage-item .label {
+            font-weight: 550;
+            color: #5d3e28;
+            display: block;
+            margin-bottom: 0.3rem;
+            font-size: 1.05rem;
+            border-left: 4px solid #caa884;
+            padding-left: 0.5rem;
+        }
+
+        /* 说明区 — 日常查询角度 */
+        .desc-block p {
+            margin-bottom: 0.9rem;
+        }
+
+        .desc-block strong {
+            color: #6b422a;
+            font-weight: 570;
+        }
+
+        .inline-link {
+            color: #8b5a3a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #dbbc9a;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, color 0.15s;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #8b5a3a;
+            color: #4e2c18;
+            background: #f5e5d3;
+        }
+
+        /* FAQ 摘要 */
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 550;
+            color: #4f3422;
+            display: block;
+            margin-bottom: 0.2rem;
+            position: relative;
+            padding-left: 1.2rem;
+        }
+
+        .faq-q::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #b58c6a;
+        }
+
+        .faq-a {
+            color: #4a3a2a;
+            padding-left: 1.2rem;
+            font-size: 0.95rem;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            text-align: center;
+            padding: 1.8rem 1.8rem 1.2rem;
+            background: rgba(240, 224, 207, 0.5);
+            backdrop-filter: blur(1px);
+            border: 1px solid #e3cdb9;
+        }
+
+        .footer-links small {
+            display: block;
+            color: #6f5a45;
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        .footer-links p {
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-link {
+            display: inline-block;
+            background: #ffffffd6;
+            backdrop-filter: blur(2px);
+            border: 1px solid #d6bea6;
+            border-radius: 48px;
+            padding: 0.4rem 1.8rem;
+            font-weight: 500;
+            color: #4a3222;
+            text-decoration: none;
+            transition: background 0.2s, box-shadow 0.2s;
+            box-shadow: 0 2px 6px rgba(130, 80, 40, 0.06);
+            margin: 0.3rem 0.4rem;
+        }
+
+        .btn-link:hover {
+            background: #fff9ed;
+            box-shadow: 0 4px 14px rgba(145, 95, 50, 0.12);
+            border-color: #bb9a7c;
+        }
+
+        .btn-link:active {
+            transform: scale(0.97);
+        }
+
+        hr {
+            border: none;
+            border-top: 2px solid #e7d3be;
+            margin: 1.2rem 0;
+            opacity: 0.4;
+        }
+
+        /* 响应式 */
+        @media (max-width: 560px) {
+            .card {
+                padding: 1.6rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 1.9rem;
+            }
+            .advantages-grid {
+                flex-direction: column;
+            }
+            .advantage-item {
+                flex: 1 1 auto;
+            }
+            .btn-link {
+                display: block;
+                margin: 0.5rem auto;
+                max-width: 220px;
+            }
+        }
+
+        @media (max-width: 400px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .card {
+                border-radius: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- hero 区：叙述感 + 日常对照 -->
+    <div class="card hero">
+        <h1>九游娱乐</h1>
+        <div class="sub">· 日常查询 · 对照阅读 ·</div>
+        <p>
+            当你想厘清某个概念、对照不同说法，或者只是随意延伸一下视野——<br>
+            不妨点开一个熟悉的站点，像随手翻一页笔记。<br>
+            <a href="https://mainindex-jiuyou.com" class="inline-link">九游娱乐</a> 便是在这种节奏里出现的。
+        </p>
+    </div>
+
+    <!-- 优势区：从查询 / 对照角度 -->
+    <div class="card">
+        <h3 style="font-weight: 550; color: #4d3523; margin-bottom: 0.2rem;">为什么适合日常翻阅</h3>
+        <div class="advantages-grid">
+            <div class="advantage-item">
+                <span class="label">信息排列</span>
+                <p>条目清楚，适合快速定位自己关心的部分，不会在页面里绕来绕去。</p>
+            </div>
+            <div class="advantage-item">
+                <span class="label">对照友好</span>
+                <p>遇到需要前后对比的内容，可以直接打开标签页并列参考，减少切换成本。</p>
+            </div>
+            <div class="advantage-item">
+                <span class="label">延伸线索</span>
+                <p>偶尔会顺着某一段描述去搜更多材料，这种开放的关联感，本身就很自然。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 说明区：具体场景 + 叙述感 -->
+    <div class="card desc-block">
+        <p><strong>日常查询</strong> 往往不是为了解决某个紧急问题，而是想确认一下自己记忆里的表述是否准确，或者看看是否有新的补充说明。<a href="https://mainindex-jiuyou.com" class="inline-link">九游娱乐</a> 的内容结构偏向条目式，很适合这种“瞄一眼，对一下”的节奏。</p>
+        <p><strong>对照阅读</strong> 也是常见场景：同一件事不同平台说法不一样，会把几个页面并排打开，逐段对比。页面布局清晰的话，这种对照会舒服很多，不需要反复滚动寻找关键句。</p>
+        <p><strong>延伸阅读</strong> 则是更放松的状态——看到某个词条或者概述之后，对相关话题产生了兴趣，顺着线索去了解更多。这种流动的阅读习惯，恰好需要一个稳定、干净的起点。</p>
+        <hr>
+        <p style="font-size: 0.95rem; color: #5a4432;">需要说明的是，以上角度都只是使用习惯中的一种可能，每个人打开页面的方式都不太一样，这里只是提供一个参照。</p>
+    </div>
+
+    <!-- FAQ 摘要：克制、真实 -->
+    <div class="card">
+        <h3 style="font-weight: 550; color: #4d3523; margin-bottom: 1rem;">FAQ 摘要 · 几个常见疑问</h3>
+        <div class="faq-item">
+            <span class="faq-q">这个页面主要是做什么用的？</span>
+            <div class="faq-a">它更像一个索引或查询对照的起点，没有复杂的互动，内容围绕日常信息需求展开。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">内容更新频率如何？</span>
+            <div class="faq-a">保持适度更新，但不会每日变动。如果长时间没有变化，也可能说明信息本身稳定，不需要频繁调整。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">是否可以自由引用或分享？</span>
+            <div class="faq-a">只要不曲解原意、不断章取义，合理引用通常没问题。具体可以留意页面底部的说明。</div>
+        </div>
+        <div class="faq-item">
+            <span class="faq-q">遇到不一致的信息怎么办？</span>
+            <div class="faq-a">建议以多个来源互相印证，这个页面也只是参考之一。对照阅读本身就是一种验证方式。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="card footer-links">
+        <p>
+            <a href="https://mainindex-jiuyou.com" class="btn-link">九游娱乐</a>
+        </p>
+        <p style="font-size: 0.9rem; color: #5d4532;">
+            日常查询 · 对照阅读 · 延伸线索
+        </p>
+        <small>© 2025 · 信息页面 · 内容仅供对照参考</small>
+    </div>
+
+</div>
+</body>
+</html>
